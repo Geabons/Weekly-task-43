@@ -90,7 +90,19 @@ console.log(drawArrow(3));
 */
 console.log("Task: C");
 
-function drawBox(n, m) {}
+function drawBox(n, m) {
+  let box = {};
+  box = "+" + "-".repeat(m * 4) + "+" + "\n";
+
+  for (let i = 0; i < n; i++) {
+    box += "|" + " ".repeat(m * 4) + "|" + "\n";
+  }
+  box += "+" + "-".repeat(m * 4) + "+";
+
+  return box;
+}
+
+console.log(drawBox(2, 2));
 
 /* -----------------------------------------------------------------------------
     Task: D
@@ -98,7 +110,26 @@ function drawBox(n, m) {}
 */
 console.log("Task: D");
 
-function heterogramWord(word) {}
+function isHeterogram(word) {
+  const letters = {};
+  let char = {};
+
+  for (let i = 0; i < word.length; i++) {
+    char = word[i].toLowerCase();
+    if (char >= "a" && char <= "z") {
+      if (letters[char]) {
+        return false;
+      }
+    }
+    letters[char] = true;
+  }
+  return true;
+}
+
+console.log(isHeterogram("fish"));
+console.log(isHeterogram("congratulations"));
+console.log(isHeterogram("The big dwarf only jumps"));
+console.log(isHeterogram("success"));
 
 /* -----------------------------------------------------------------------------
     Task: E
@@ -106,4 +137,22 @@ function heterogramWord(word) {}
 */
 console.log("Task: E");
 
-function isAnagram(word) {}
+function isAnagram(word1, word2) {
+  const cleanedWord1 = word1.split(" ").join("").toLowerCase();
+  const cleanedWord2 = word2.split(" ").join("").toLowerCase();
+
+  if (cleanedWord1.length !== cleanedWord2.length) {
+    return false;
+  }
+
+  const sortedWord1 = cleanedWord1.split("").sort().join("");
+  const sortedWord2 = cleanedWord2.split("").sort().join("");
+
+  if (sortedWord1 === sortedWord2) {
+    return true;
+  }
+}
+console.log(isAnagram("snake", "sneak"));
+console.log(isAnagram("triangle", "integral"));
+console.log(isAnagram("apple", "pale"));
+console.log(isAnagram("Dormitory", "Dirty room"));
