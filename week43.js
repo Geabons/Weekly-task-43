@@ -77,7 +77,7 @@ function drawArrow(size) {
   return arrow;
 }
 
-console.log(drawArrow(3));
+console.log(drawArrow(3));  
 /* -----------------------------------------------------------------------------
     Task: C
     Write a function that draws a box of n by m dimensions. Take into account the difference in aspect-ratio.
@@ -150,9 +150,12 @@ function isAnagram(word1, word2) {
 
   if (sortedWord1 === sortedWord2) {
     return true;
+  }else{
+    return false;
   }
 }
 console.log(isAnagram("snake", "sneak"));
 console.log(isAnagram("triangle", "integral"));
 console.log(isAnagram("apple", "pale"));
 console.log(isAnagram("Dormitory", "Dirty room"));
+console.log(isAnagram("pie", "ole"));
